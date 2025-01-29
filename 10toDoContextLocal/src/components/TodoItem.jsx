@@ -1,11 +1,13 @@
+/* eslint-disable react/prop-types */
 import { useToDo } from "../contexts/index";
 import { useState } from "react";
 
-// eslint-disable-next-line react/prop-types
 function TodoItem({ todo }) {
-    console.log("propToDo", todo)
+    // console.log("propToDo", todo)
+
     const [isTodoEditable, setIsTodoEditable] = useState(false)
     const [todoMsg, setTodoMsg] = useState(todo?.todo)
+
     const { updateTodo, deleteTodo, toggleComplete } = useToDo()
 
     const editTodo = () => {
@@ -44,9 +46,11 @@ function TodoItem({ todo }) {
                     };
 
                     if (isTodoEditable) {
+                        console.log("editable")
                         editTodo();
                     }
                     else {
+                        console.log("editable22")  // On click it makes filed editable by changing editable false to true
                         setIsTodoEditable((prev) => !prev);
                     }
                 }}

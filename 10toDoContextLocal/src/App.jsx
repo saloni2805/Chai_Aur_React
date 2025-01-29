@@ -8,7 +8,10 @@ function App() {
 
   const addTodo = (todo) => {
     console.log("add vala todo", todo)
-    setTodos((prev) => [{ todo, ...todo }, ...prev])
+    setTodos((prev) => {
+      console.log("prev", prev)  //useState made je pn ky by default asel like [],{},"" it stores the previous or all the values in it
+      return [{ todo, ...todo }, ...prev]
+    })
   }
 
   const updateTodo = (id, todo) => {
@@ -27,16 +30,17 @@ function App() {
   }
 
   useEffect(() => {
-    const todos = JSON.parse(localStorage.getItem("todos"))
+    const todos = JSON.parse(localStorage.getItem("todos"))  //Converts the data in array of object format from string format
+    console.log("Localtodos", todos)
     if (todos && todos.length > 0) {
       setTodos(todos)
     }
   }, [])
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos))
+    console.log("Localset", JSON.stringify(todos))
+    localStorage.setItem("todos", JSON.stringify(todos))   //Converts the data in String format from Array of object format
   }, [todos])
-
 
   return (
     <ToDoContextProvider value={{ todos, addTodo, updateTodo, deleteTodo, toggleComplete }}>
