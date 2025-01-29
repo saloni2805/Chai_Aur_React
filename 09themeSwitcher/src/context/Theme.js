@@ -9,8 +9,9 @@ export const ThemeContext = createContext({
     lightTheme: () => { }
 });
 
-export const ThemeProvider = ThemeContext.Provider
-
-export default function useTheme() {
+export function useTheme() {
     return useContext(ThemeContext)
 }
+
+export const ThemeProvider = ThemeContext.Provider
+
