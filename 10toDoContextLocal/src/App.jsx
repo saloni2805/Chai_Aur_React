@@ -31,14 +31,12 @@ function App() {
 
   useEffect(() => {
     const todos = JSON.parse(localStorage.getItem("todos"))  //Converts the data in array of object format from string format
-    console.log("Localtodos", todos)
     if (todos && todos.length > 0) {
       setTodos(todos)
     }
   }, [])
 
   useEffect(() => {
-    console.log("Localset", JSON.stringify(todos))
     localStorage.setItem("todos", JSON.stringify(todos))   //Converts the data in String format from Array of object format
   }, [todos])
 
