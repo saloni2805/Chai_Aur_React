@@ -9,7 +9,7 @@ function App() {
   const addTodo = (todo) => {
     console.log("add vala todo", todo)
     setTodos((prev) => {
-      console.log("prev", prev)  //useState made je pn ky by default asel like [],{},"" it stores the previous or all the values in it
+      console.log("prev", prev)  //useState made je pn ky by default asel like [],{},"" it stores the previous or all the values in it ...
       return [{ todo, ...todo }, ...prev]
     })
   }
