@@ -9,7 +9,8 @@ import Todos from "./components/Todos"
 // it has configureStore
 // introduce reducer
 
-// 2. Create Slice(functions) method(createSlice)
+// 2. Create Slice(functions)
+// method(createSlice)
 // Slice has name, initialState, reducers :{key: function}
 // Access of two things (State, action)
 // All methods defined in the reducer() function have 2 main attributes "state" and "action"
